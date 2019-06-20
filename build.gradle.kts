@@ -27,6 +27,7 @@ dependencies {
         exclude(module = "junit")
     }
     testImplementation("io.mockk:mockk:1.9.3.kotlin12")
+    testImplementation("com.ninja-squad:springmockk:1.1.2")
 
     //Jupiter dependencies
     val jupiterVersion = "5.3.2"
