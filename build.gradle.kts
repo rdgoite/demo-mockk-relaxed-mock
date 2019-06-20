@@ -21,8 +21,20 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	runtimeOnly("com.h2database:h2")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    // Test dependencies
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(module = "junit")
+    }
     testImplementation("io.mockk:mockk:1.9.3.kotlin12")
+
+    //Jupiter dependencies
+    val jupiterVersion = "5.3.2"
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${jupiterVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:${jupiterVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:${jupiterVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.3.2")
 }
 
 tasks.withType<KotlinCompile> {
