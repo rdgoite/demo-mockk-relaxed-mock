@@ -17,4 +17,10 @@ class DefaultBookService(@Autowired private var bookRepository: BookRepository):
 
 }
 
-interface BookRepository: JpaRepository<Book, String>
+interface BookRepository: BaseRepository<Book, String>
+
+interface BaseRepository<T, ID> {
+
+    fun <S:T> save(obj: S): S
+
+}
